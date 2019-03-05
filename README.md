@@ -1,2 +1,2 @@
 # cinex
-web app to search for movies with imdb
+web app search movies with imdb
