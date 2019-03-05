@@ -1,16 +1,18 @@
 <template>
   <div class="home">
     <SearchMovie/>
-    <section>
+    <div class="text-center">
       <img 
-        v-if="loading"
+        v-show="loading"
         class="lading-gif" 
         src="https://media.giphy.com/media/10kTz4r3ishQwU/giphy-downsized.gif"
         alt="loading gif"
       >
-    </section>
+     
+    </div>
     
-    <main class="movies card-columns" v-if="!loading">
+    <main class="movies card-columns" v-show="!loading">
+      
       <MovieCard 
         v-for="movie in movies" 
         :key="movie.id"
@@ -36,16 +38,11 @@
     computed: mapState({
       loading : 'loading',
       movies : 'movies'
-    })
-
+    }),
   }
 </script>
 
 <style scoped>
-
-  section{
-    text-align: center;
-  }
 
   .movies{
     width: 80%;

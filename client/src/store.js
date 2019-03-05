@@ -8,7 +8,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     movies:[],
-    loading:false
+    loading:false,
   },
   mutations: {
     
@@ -24,11 +24,7 @@ export default new Vuex.Store({
         const movies = json.Search;
 
         context.state.movies = movies;
-        context.state.loading = false;
-        
-        
-        
-         
+        context.state.loading = false; 
      }
 
   }

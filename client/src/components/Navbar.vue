@@ -7,10 +7,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item" :class="{active: isHome}">
                          <router-link class="nav-link" :to="'/'">Home</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" :class="{active: isAbout}">
                          <router-link class="nav-link" :to="'/about'">About</router-link>
                     </li>
                 </ul>
@@ -22,9 +22,16 @@
 </template>
 
 <script>
-export default {
-    
-}
+    export default {
+        computed:{
+            isAbout(){
+                return this.$route.path === '/about';
+            },
+            isHome(){
+                return this.$route.path === '/';
+            }
+        }
+    }
 </script>
 
 <style scoped>

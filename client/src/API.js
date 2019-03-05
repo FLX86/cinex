@@ -1,4 +1,4 @@
-const apikey = '617aa2ba' 
+const apikey = /* put your omdbapi apikey here */ 
 
 export default {
   URL_TITLE: "http://www.omdbapi.com/?apikey="+ apikey +"&s=",
