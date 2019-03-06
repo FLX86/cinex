@@ -8,7 +8,7 @@ import store from './store'
 // importing bootswatch styles
 import 'bootswatch/dist/darkly/bootstrap.css'
 
-// omd api key 617aa2ba
+
 
 
 Vue.config.productionTip = false
