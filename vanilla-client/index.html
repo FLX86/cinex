@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Js Cinex ⚡💛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- bootswatch theme united -->
+  <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css"> 
+  <style>
+    .form-group{
+      width: 65%;
+      margin: 20px auto;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .loading{
+      width: 16%;
+      margin: 0 auto;
+    }
+
+    img{
+      width: 100%;
+      height: auto;
+    }
+  
+  
+  </style>
+
+</head>
+<body>
+
+  <!-- NavBar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Cinex</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link active" href="">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <form class="form-group bg-light" id="form-input">
+    <h1>Search a Movie</h1>
+    <input class="form-control" type="text" placeholder="Enter a movie title...">
+    <button type="submit" class="btn btn-primary mt-2">Search</button>
+  </form>
+  <main>
+
+
+  </main>
+  <section class="loading">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png" alt="js logo">
+      <img src="https://craigshelly.com/skin/frontend/puro/default/images/AjaxLoader.gif" alt="loading gif">
+
+  </section>
+
+  <script type="module" src="API.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
