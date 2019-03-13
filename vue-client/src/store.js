@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     movies:[],
     loading:false,
+    moviesFound:true
   },
   mutations: {
     
@@ -19,10 +20,11 @@ export default new Vuex.Store({
 
         context.state.loading = true
       
-        const response = await fetch(API.URL_TITLE+payload.movieTitle);
-        const json = await response.json();
-        const movies = json.Search;
-
+        const url = API.URL_TITLE + payload.movieTitle;
+        const res = await fetch(url);
+        const {response, movies} = await res.json();
+      
+        context.state.moviesFound = response
         context.state.movies = movies;
         context.state.loading = false; 
      }

@@ -35,8 +35,8 @@
             }
         },
         methods:{
-            onSubmit(event){
-                event.target.reset();
+            onSubmit(){
+                // event.target.reset();
                 this.searchMovie();
             },
             searchMovie(){

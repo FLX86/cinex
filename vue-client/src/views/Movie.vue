@@ -50,8 +50,10 @@
         async mounted(){
             this.loading = true;
             const movieID = this.$route.params.id;
-            const response = await fetch (API.URL_ID+movieID);
-            this.movie = await response.json();
+            const url = API.URL_ID+movieID;
+            const response = await fetch (url);
+            const {movie} = await response.json();
+            this.movie = movie;
             this.loading = false;           
         }
     }

@@ -2,14 +2,18 @@
   <div class="home">
     <SearchMovie/>
     <VueLoading v-show="loading"/>
-    <main class="movies card-columns" v-show="!loading">
+    <main class="movies card-columns" v-show="!loading && moviesFound">
       
       <MovieCard 
         v-for="movie in movies" 
         :key="movie.id"
         :movie="movie" 
       />
+
     </main>    
+    <div class="alert alert-danger"  v-show="!loading && !moviesFound">
+      <strong>Oh snap! Movie Not Found!😞 </strong>
+    </div>
     
   </div>
 </template>
@@ -29,7 +33,8 @@
     },
     computed: mapState({
       loading : 'loading',
-      movies : 'movies'
+      movies : 'movies',
+      moviesFound: 'moviesFound',
     }),
   }
 </script>
@@ -41,7 +46,12 @@
     margin: 0 auto;
     text-align: center;
     column-gap: 0.025rem;
-  
+  }
+
+  .alert{
+    width: 25%;
+    margin: 0 auto;
+    text-align: center;
   }
 
   

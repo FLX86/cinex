@@ -1,7 +1,7 @@
-const apikey = '617aa2ba';
+
 
 export default {
-  URL_TITLE: "http://www.omdbapi.com/?apikey="+ apikey +"&s=",
-  URL_ID: "http://www.omdbapi.com/?apikey=" + apikey+ "&i="
+  URL_TITLE: "https://flx-omdb-api.now.sh/?type=movie&s=",
+  URL_ID: "https://flx-omdb-api.now.sh/?i="
 
 }
