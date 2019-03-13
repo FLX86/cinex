@@ -1,7 +1,7 @@
 <template>
     <div id="about">
         <div class="jumbotron bg-primary text-white">
-            <h1 class="display-3">Vue Movie Finder!</h1>
+            <h1 class="display-3">Vue Movie Finder!💚</h1>
             <p class="lead">This is a simple app for searching movies with 
                 <a href="http://www.omdbapi.com/" target="_blank" class="text-warning"> omdb API </a> 
                 and
