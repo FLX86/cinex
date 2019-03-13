@@ -1,16 +1,7 @@
 <template>
   <div class="home">
     <SearchMovie/>
-    <div class="text-center">
-      <img 
-        v-show="loading"
-        class="lading-gif" 
-        src="https://media.giphy.com/media/10kTz4r3ishQwU/giphy-downsized.gif"
-        alt="loading gif"
-      >
-     
-    </div>
-    
+    <VueLoading v-show="loading"/>
     <main class="movies card-columns" v-show="!loading">
       
       <MovieCard 
@@ -28,12 +19,13 @@
 
   import SearchMovie from "@/components/SearchMovie.vue";
   import MovieCard from "@/components/MovieCard.vue";
+  import VueLoading from "@/components/VueLoading.vue";
   import { mapState } from "vuex";
 
   export default {
     name: 'home',
     components: {
-      SearchMovie,MovieCard
+      SearchMovie,MovieCard,VueLoading
     },
     computed: mapState({
       loading : 'loading',

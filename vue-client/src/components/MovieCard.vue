@@ -1,5 +1,5 @@
 <template>
-    <div class="card m-3 p-2">
+    <div class="card bg-primary text-white m-3 p-2">
         <img class="card-img-top" :src="movie.Poster" alt="Movie Poster">
         <div class="card-body">
             <h5 class="card-title">{{movie.Title}}</h5>

@@ -1,5 +1,8 @@
 <template>
-    <form id="search-movie" class="bg-light" @submit.prevent="onSearchMovie">
+    <form 
+        id="search-movie"
+        class="bg-primary text-white"
+        @submit.prevent="onSubmit">
         <div class="form-group">
             <h3>Search a movie</h3>
             <input 
@@ -12,7 +15,7 @@
             >
             <button 
                  type="submit" 
-                 class="btn btn-danger mt-2"
+                 class="btn btn-success mt-2"
             >Search</button>
         </div>
     </form>
@@ -32,7 +35,7 @@
             }
         },
         methods:{
-            onSearchMovie(event){
+            onSubmit(event){
                 event.target.reset();
                 this.searchMovie();
             },

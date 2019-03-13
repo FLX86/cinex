@@ -1,16 +1,7 @@
 <template>
     <div id="movie">
-
-        <div class="loading-container text-center" v-show="loading">
-            <img 
-                v-if="true"
-                class="lading-gif" 
-                src="https://media.giphy.com/media/10kTz4r3ishQwU/giphy-downsized.gif"
-                alt="loading gif"
-            >
-        </div>
-        <div class="movie-container bg-light" v-show="!loading">
-            
+        <VueLoading v-show="loading"/>
+        <div class="movie-container bg-primary text-white" v-show="!loading">
             <main>
                 <section class="poster">
                     <img :src="movie.Poster" alt=""> 
@@ -30,11 +21,11 @@
             </main>    
             <footer>
                 <div>
-                    <h4 class="">Plot</h4>
+                    <h4 class="mt-4">Plot</h4>
                     {{movie.Plot}}
                     <hr>
-                    <a :href="'http://imdb.com/title/'+ movie.imdbID" target="_blank" class="btn btn-primary">View IMDB</a>
-                    <router-link class="btn btn-default" :to="'/'">Go Back To Search</router-link>
+                    <a :href="'http://imdb.com/title/'+ movie.imdbID" target="_blank" class="btn btn-success">View IMDB</a>
+                    <router-link class="btn btn-link" :to="'/'">Go Back To Search</router-link>
                 </div>
             </footer>
         </div>
@@ -43,7 +34,8 @@
 
 <script>
 
-    import API from '@/API'
+    import API from '@/API';
+    import VueLoading from "@/components/VueLoading.vue";
 
     export default {
         data(){
@@ -52,19 +44,21 @@
                 loading:null
             }
         },
-       async mounted(){
-           this.loading = true;
-           const movieID = this.$route.params.id;
-           const response = await fetch (API.URL_ID+movieID);
-           this.movie = await response.json();
-           this.loading = false;           
-       }
+        components:{
+            VueLoading,
+        },
+        async mounted(){
+            this.loading = true;
+            const movieID = this.$route.params.id;
+            const response = await fetch (API.URL_ID+movieID);
+            this.movie = await response.json();
+            this.loading = false;           
+        }
     }
 </script>
 
 <style scoped>
-   
-
+    
     .movie-container , .loading-container {
         width: 70%;
         margin: 80px auto;
@@ -80,6 +74,7 @@
         border-radius: 8px;
     }
 
-
-
+    .list-group-item{
+        background-color: #2C3E50;
+    }
 </style>

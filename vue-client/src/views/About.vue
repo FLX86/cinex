@@ -1,15 +1,15 @@
 <template>
     <div id="about">
-        <div class="jumbotron">
-            <h1 class="display-3">Cinex movie finder!</h1>
+        <div class="jumbotron bg-primary text-white">
+            <h1 class="display-3">Vue Movie Finder!</h1>
             <p class="lead">This is a simple app for searching movies with 
-                <a href="http://imdb.com" target="_blank" class="text-warning"> imdb API </a> 
+                <a href="http://www.omdbapi.com/" target="_blank" class="text-warning"> omdb API </a> 
                 and
                 <a href="https://vuejs.org" target="_blank" class="text-success"> Vue.js </a> 
             </p>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="https://github.com/felixlopezq/cinex" role="button" target="_blank">GitHub</a>
-                <router-link class="btn btn-default" :to="'/'">Go Back To Search</router-link>
+                <a class="btn btn-secondary " href="https://github.com/felixlopezq/cinex" role="button" target="_blank">GitHub</a>
+                <router-link class="btn btn-link" :to="'/'">Go Back To Search</router-link>
             </p>
         </div>
     </div>
