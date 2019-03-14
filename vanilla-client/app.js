@@ -5,35 +5,116 @@ const API = {
 }
 
 const form = document.querySelector('form');
-const formInput = document.querySelector('input');
+const formInputElement = document.querySelector('input');
 const loadingElement = document.querySelector('.loading');
-const main = document.querySelector('main');
+const app = document.querySelector('#app');
 
-loadingElement.style.display = 'none';
+// State
+let state = { 
+  movies: [],
+  movie: Object,
+  loading: false,
+  movieSearched: '',
+  formInput: '',
+  response: Boolean,
+}
 
+function setState(newState){
+  state = {...state, ...newState};
+  render();
+}
+
+// onLoad actions
+render();
+
+// Event Listeners
 form.addEventListener('submit' , onSubmit);
+formInputElement.addEventListener('keyup', onFormInputElementChange);
 
+// Functions
+function render (){
+  app.innerHTML =
+   `
+   <section class="loading-container">
+      ${ state.loading ? getJsLoadingTemplate() : '' }
+   </section>
+    <section class="movies-container card-columns">
+      ${
+        state.movies.reduce((html, movie) => {
+          return html + getMovieCardTemplate(movie);
+        },'')
+      }
+    </section>
+    <section class = alert-container >
+      ${
+        !state.response ?
+          `<section class="alert alert-danger">
+            <strong>Oh snap! Movie Not Found!😞 </strong>
+          </section>`
+        :
+          ''
+      }
+    </section >
+  `
+}
 
 async function onSubmit(event){
   event.preventDefault();
-  loadingElement.style.display = '';
 
-  const data = await searchMovies (formInput.value); // searching movies from the api
-  loadingElement.style.display = 'none'; // hide loading element
+  setLoading(true);
+  const data = await searchMoviesByTitle(state.formInput); // searching movies from the api
+  setLoading(false);
 
+  setState(handleData(data));
+}
+
+async function searchMoviesByTitle(title){
+  const url =  `${API.URL_SEARCH}${title}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  return data;
+}
+
+function getMovieCardTemplate(movie){
+  return `
+    <div class="card bg-dark text-center text-white m-3 p-2">
+        <img class="card-img-top" src="${movie.Poster}" alt="Movie Poster">
+        <div class="card-body">
+          <h5 class="card-title">${movie.Title}</h5>
+          <button class="btn btn-link">More Info</button>  
+        </div>
+    </div>
+  `;
+}
+function getJsLoadingTemplate(){
+  return `
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png" alt="js logo">
+    <img src="https://craigshelly.com/skin/frontend/puro/default/images/AjaxLoader.gif" alt="loading gif">
+  `;
+}
+
+
+function onFormInputElementChange (){
+  state.formInput = formInputElement.value;  
+}
+
+function handleData(data){
   if (data.response){
-    main.innerText = data.movies;
+    return {
+      movies: data.movies,
+      movieSearched: state.formInput,
+      response: data.response,
+    } 
+    
   }else{
-    main.innerText = data.error;
+    return {
+      movies: [],
+      movieSearched: state.formInput,
+      response: data.response,
+    }
   }
 }
 
-async function searchMovies(title){
-    const url =  `${API.URL_SEARCH}${title}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    return data;
+function setLoading(bool){
+  setState({loading:bool});
 }
-
-
-
