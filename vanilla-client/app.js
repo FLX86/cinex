@@ -6,7 +6,6 @@ const API = {
 
 const form = document.querySelector('form');
 const formInputElement = document.querySelector('input');
-const loadingElement = document.querySelector('.loading');
 const app = document.querySelector('#app');
 
 // State
