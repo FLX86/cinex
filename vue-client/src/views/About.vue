@@ -8,7 +8,7 @@
                 <a href="https://vuejs.org" target="_blank" class="text-success"> Vue.js </a> 
             </p>
             <p class="lead">
-                <a class="btn btn-secondary " href="https://github.com/felixlopezq/cinex" role="button" target="_blank">GitHub</a>
+                <a class="btn btn-secondary " href="https://github.com/flx86/cinex" role="button" target="_blank">GitHub</a>
                 <router-link class="btn btn-link" :to="'/'">Go Back To Search</router-link>
             </p>
         </div>

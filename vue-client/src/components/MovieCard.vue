@@ -3,10 +3,7 @@
         <img class="card-img-top" :src="movie.Poster" alt="Movie Poster">
         <div class="card-body">
             <h5 class="card-title">{{movie.Title}}</h5>
-            <p></p>
-            
-                <router-link :to="'/movie/' + movie.imdbID">More Info</router-link>
-
+            <router-link :to="'/movie/' + movie.imdbID">More Info</router-link>
         </div>
     </div>
 </template>
